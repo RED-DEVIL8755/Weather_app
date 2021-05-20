@@ -32,6 +32,27 @@ app.get('',(req,res)=>{
         name:'Milan Jhaldiyal'
     })//here in argument providing the hbs file name and 2nd argument is the value we pass
 })
+
+
+app.get('/about',(req,res)=>{
+    res.render('about',{
+        title : 'About',
+        body:'Hey!...I am an Computer Science Engineer...Specialist in backend services',
+        name : 'Milan Jhaldiyal'
+    })
+})
+
+
+
+app.get('/help',(req,res)=>{
+    res.render('help',{
+        title:'Help',
+        body : 'Help the needy',
+        name : 'Milan Jhaldiyal'
+    })
+})
+
+
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
         return res.send({
@@ -54,20 +75,7 @@ app.get('/weather',(req,res)=>{
         })
     })
 })
-app.get('/about',(req,res)=>{
-    res.render('about',{
-        title : 'About',
-        body:'Hey!...I am an Computer Science Engineer...Specialist in backend services',
-        name : 'Milan Jhaldiyal'
-    })
-})
-app.get('/help',(req,res)=>{
-    res.render('help',{
-        title:'Help',
-        body : 'Help the needy',
-        name : 'Milan Jhaldiyal'
-    })
-})
+
 //Setting up 404 pages * is used for setting the unmatch page
 app.get('*',(req,res)=>{
     res.render('web_error',{
@@ -77,5 +85,5 @@ app.get('*',(req,res)=>{
     })
 })
 app.listen(port,()=>{
-    console.log('Server is up on port ',port)
+    console.log('Server is up on port '+port)
 })
